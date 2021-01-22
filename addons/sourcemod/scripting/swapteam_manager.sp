@@ -54,10 +54,10 @@ public	void	OnPluginStart()	{
 	
 	RegAdminCmd("sm_forceteam",		ForceClientTeam,	ADMFLAG_ROOT,	"Force a team index number on a client");
 	
-	swapNotify	=	CreateConVar("commands_swapteam_notify",	"1",	"Notify to show everyone or just client for chat team changes");
-	swapInstant	=	CreateConVar("commands_swapteam_instant",	"0",	"Determine wheter the team switch should be instant or not");
+	swapNotify	=	CreateConVar("sm_swapteam_notify",	"1",	"Notify to show everyone or just client for chat team changes");
+	swapInstant	=	CreateConVar("sm_swapteam_instant",	"0",	"Determine wheter the team switch should be instant or not");
 	if(GetEngineVersion() == Engine_CSS || GetEngineVersion() == Engine_CSGO)	{
-		swapUpdateModel	=	CreateConVar("commands_swapteam_updatemodel",	"1",	"Determine if the client model should be updated upon instant team swap");
+		swapUpdateModel	=	CreateConVar("sm_swapteam_updatemodel",	"1",	"Determine if the client model should be updated upon instant team swap");
 	}
 	
 	AutoExecConfig(true,	"swapteam_manager");

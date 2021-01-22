@@ -1,0 +1,66 @@
+"Phrases"
+{
+	"swapteam_prefix"
+	{
+		"en"		"{lightgreen}[Swap]"
+	}
+	
+	"swapteam_usage"
+	{
+		"en"		"Usage: {lightgreen}sm_swap {orange}<#userid|target>"
+	}
+	"swapteam_usage_tf2c"
+	{
+		"en"		"Usage: {lightgreen}sm_swap {orange}<#userid|target> {yellow}<teamname>"
+	}
+	"swapteam_spec_usage"
+	{
+		"en"		"Usage: {lightgreen}sm_swapspec {orange}<#userid|target>"
+	}
+	"swapteam_target"
+	{
+		"#format"	"{1:N},{2:s},{3:s}"
+		"en"		"{1} {default}Swapped Team of {2} {default}to {3}"
+	}
+	"swapteam_target_client"
+	{
+		"#format"	"{1:s},{2:s}"
+		"en"		"Swapped Team of {1} {default}to {2}"
+	}
+	
+	"exchangeteam_usage"
+	{
+		"en"		"Usage: {lightgreen}sm_exchange {orange}<#userid|target {yellow}<#userid|target>"
+	}
+	"exchangeteam_error"
+	{
+		"en"			"The targets are both are in the same team, aborting exchange"
+	}
+	"exchangeteam_target"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:s}"
+		"en"		"Exchanged {lightgreen}{1} {default}to team {2} {default}with {lightgreen}{3} {default}to team {4}"
+	}
+	
+	"forceteam_usage"
+	{
+		"en"		"Usage: {lightgreen}sm_forceteam {orange}<#userid|target> {yellow}<team index number>"
+	}
+	
+	"forceteam_error_lower"
+	{
+		"en"		"The team integer value cannot be lower than {lightgreen}0"
+	}
+	
+	"forceteam_error_over"
+	{
+		"#format"	"{1:d}"
+		"en"		"The team integer value cannot be over {lightgreen}{1}"
+	}
+	
+	"forceteam_target"
+	{	
+		"#format"	"{1:s},{2:d}"
+		"en"		"Forced team index integer {2} on {lightgreen}{1}"
+	}
+}

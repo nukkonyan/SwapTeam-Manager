@@ -1,0 +1,74 @@
+"Phrases"
+{
+	"swapteam_prefix"
+	{
+		"sv"		"{lightgreen}[Swap]"
+	}
+	
+	"swapteam_usage"
+	{
+		"sv"		"Användning: {lightgreen}sm_swap {orange}<#användarid|mål>"
+	}
+	"swapteam_usage_tf2c"
+	{
+		"sv"		"Användning: {lightgreen}sm_swap {orange}<#användarid|mål> {yellow}<lagnamn>"
+	}
+	"swapteam_spec_usage"
+	{
+		"sv"		"Användning: {lightgreen}sm_swapspec {orange}<#användarid|mål>"
+	}
+	"swapteam_target"
+	{
+		"#format"	"{1:N},{2:s},{3:s}"
+		"sv"		"{1} {default}Bytte lag utav {2} {default}till {3}"
+	}
+	"swapteam_target_client"
+	{
+		"#format"	"{1:s},{2:s}"
+		"sv"		"Bytte lag utav {1} {default}till {2}"
+	}
+	
+	"exchangeteam_usage"
+	{
+		"sv"		"Användning: {lightgreen}sm_exchange {orange}<#användarid|mål {yellow}<#användarid|mål>"
+	}
+	"exchangeteam_error"
+	{
+		"sv"			"Målen är med på samma lag, avbryter utbyte"
+	}
+	"exchangeteam_target"
+	{
+		"#format"	"{1:N},{2:s},{3:s},{4:s},{5:s}"
+		"sv"		"{1} {default}Bytte ut {lightgreen}{2} {default}till lag {3} {default}med {lightgreen}{4} {default}till lag {5}"
+	}
+	"exchangeteam_target_client"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:s}"
+		"sv"		"Exchanged {lightgreen}{1} {default}to team {2} {default}with {lightgreen}{3} {default}to team {4}"
+	}
+	
+	"forceteam_usage"
+	{
+		"sv"		"Användning: {lightgreen}sm_forceteam {orange}<#användarid|mål> {yellow}<lag indexnummer>"
+	}
+	"forceteam_error_lower"
+	{
+		"sv"		"Lag indexnummer kan inte vara lägre än {lightgreen}0"
+	}
+	"forceteam_error_over"
+	{
+		"#format"	"{1:d}"
+		"sv"		"Lag indexnummer kan inte vara över {lightgreen}{1}"
+	}
+	"forceteam_target"
+	{	
+		"#format"	"{1:N},{2:d},{3:s}"
+		"sv"		"{1} Tvingade lag indexnummer {2} på {lightgreen}{3}"
+	}
+	"forceteam_target_client"
+	{	
+		"#format"	"{1:d},{2:s}"
+		"sv"		"Tvingade lag indexnummer {1} on {lightgreen}{2}"
+	}
+
+}

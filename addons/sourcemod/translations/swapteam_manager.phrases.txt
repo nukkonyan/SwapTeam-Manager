@@ -38,6 +38,11 @@
 	}
 	"exchangeteam_target"
 	{
+		"#format"	"{1:N},{2:s},{3:s},{4:s},{5:s}"
+		"en"		"{1} {default}Exchanged {lightgreen}{2} {default}to team {3} {default}with {lightgreen}{4} {default}to team {5}"
+	}
+	"exchangeteam_target_client"
+	{
 		"#format"	"{1:s},{2:s},{3:s},{4:s}"
 		"en"		"Exchanged {lightgreen}{1} {default}to team {2} {default}with {lightgreen}{3} {default}to team {4}"
 	}
@@ -46,21 +51,24 @@
 	{
 		"en"		"Usage: {lightgreen}sm_forceteam {orange}<#userid|target> {yellow}<team index number>"
 	}
-	
 	"forceteam_error_lower"
 	{
 		"en"		"The team integer value cannot be lower than {lightgreen}0"
 	}
-	
 	"forceteam_error_over"
 	{
 		"#format"	"{1:d}"
 		"en"		"The team integer value cannot be over {lightgreen}{1}"
 	}
-	
 	"forceteam_target"
 	{	
-		"#format"	"{1:s},{2:d}"
-		"en"		"Forced team index integer {2} on {lightgreen}{1}"
+		"#format"	"{1:N},{2:d},{3:s}"
+		"en"		"{1} Forced team index integer {2} on {lightgreen}{3}"
 	}
+	"forceteam_target_client"
+	{	
+		"#format"	"{1:d},{2:s}"
+		"en"		"Forced team index integer {1} on {lightgreen}{2}"
+	}
+
 }

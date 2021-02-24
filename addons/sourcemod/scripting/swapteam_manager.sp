@@ -8,7 +8,7 @@ public	Plugin	myinfo	=	{
 	name		=	"[ANY] SwapTeam Manager",
 	author		=	"Tk /id/Teamkiller324",
 	description	=	"Manage and swap players teams",
-	version		=	"1.1.0",
+	version		=	"1.2.0",
 	url			=	"https://steamcommunity.com"
 }
 
@@ -23,7 +23,9 @@ ConVar		swapNotifySwapTeam,
 			swapNotifySpecTeam,
 			swapNotifyExchangeTeam,
 			swapNotifyForceTeam,
+			swapNotifyScramble,
 			swapInstant,
+			swapInstantScramble,
 			swapUpdateModel;
 
 public	void	OnPluginStart()	{	
@@ -40,7 +42,7 @@ public	void	OnPluginStart()	{
 	RegAdminCmd("sm_swapteam",		SwapTeamPlayer,		ADMFLAG_SLAY,	"Swap a player to a team");
 	RegAdminCmd("sm_switch",		SwapTeamPlayer,		ADMFLAG_SLAY,	"Swap a player to a team");
 	RegAdminCmd("sm_switchteam",	SwapTeamPlayer,		ADMFLAG_SLAY,	"Swap a player to a team");
-
+	
 	RegAdminCmd("sm_exchange",		ExchangeTeamPlayer,	ADMFLAG_SLAY,	"Exchange a players team to another players team");
 	
 	RegConsoleCmd("sm_spec",		SpecTeam,							"Switch to spectator team");
@@ -49,14 +51,19 @@ public	void	OnPluginStart()	{
 	
 	RegAdminCmd("sm_forceteam",		ForceClientTeam,	ADMFLAG_ROOT,	"Force a team index number on a client");
 	
+	RegAdminCmd("sm_scramble",		ScramblePlayer,		ADMFLAG_SLAY,	"Scramble a player to a random team");
+	RegAdminCmd("sm_scrambleteams",	ScrambleTeams,		ADMFLAG_SLAY,	"Scramble players to a random team");
+	
 	//Notification ConVars
 	swapNotifySwapTeam		=	CreateConVar("sm_swapteam_notify_swapteam",		"1",	"Notify to everyone or just the client for chat team changes",		_,	true,	0.0,	true,	1.0);
 	swapNotifySpecTeam		=	CreateConVar("sm_swapteam_notify_specteam",		"1",	"Notify to everyone or just the client for spec team changes",		_,	true,	0.0,	true,	1.0);
 	swapNotifyExchangeTeam	=	CreateConVar("sm_swapteam_notify_exchangeteam",	"1",	"Notify to everyone or just the client for exhcnage team changes",	_,	true,	0.0,	true,	1.0);
-	swapNotifyForceTeam		=	CreateConVar("sm_swapteam_notify_forceteam",	"1",	"Notify to everyone to just the client for force team changes",		_,	true,	0.0,	true,	1.0);
+	swapNotifyForceTeam		=	CreateConVar("sm_swapteam_notify_forceteam",	"1",	"Notify to everyone or just the client for force team changes",		_,	true,	0.0,	true,	1.0);
+	swapNotifyScramble		=	CreateConVar("sm_swapteam_notify_scramble",		"1",	"Notify to everyone or just the client for scramble",				_,	true,	0.0,	true,	1.0);
 	
 	//Determine if the team swap shall be instant
-	swapInstant	=	CreateConVar("sm_swapteam_instant",	"0",	"Determine wheter the team switch should be instant or not");
+	swapInstant			=	CreateConVar("sm_swapteam_instant",				"0",	"Determine wheter the team switch should be instant or not",			_,	true,	0.0,	true,	1.0);
+	swapInstantScramble	=	CreateConVar("sm_swapteam_instant_scramble",	"0",	"Determine wheter the scramble team switch should be instant or not",	_,	true,	0.0,	true,	1.0);
 	
 	switch(GetEngineVersion())	{
 		//Checks if the game is CSGO or CSS for the update playermodel function
@@ -68,7 +75,7 @@ public	void	OnPluginStart()	{
 	AutoExecConfig(true,	"swapteam_manager");	
 }
 
-public Action SwapTeamPlayer(int client, int args)	{
+Action SwapTeamPlayer(int client, int args)	{
 	if(StrEqual(game, "tf2classic"))	{
 		if(args != 2)	{
 			CPrintToChat(client, "%s %t", swapPrefix, "swapteam_usage_tf2c");
@@ -102,7 +109,7 @@ public Action SwapTeamPlayer(int client, int args)	{
 		tn_is_ml)) <= 0)
 	{
 		ReplyToTargetError(client, target_count);
-		return Plugin_Handled;
+		return	Plugin_Handled;
 	}
 	
 	char teamname[128];
@@ -182,7 +189,7 @@ public Action SwapTeamPlayer(int client, int args)	{
 			}
 			case	Engine_CSS,Engine_CSGO:	{
 				switch(CS_GetClientTeam(target))	{
-					case	CSTeam_Spectators:	{
+					case	CSTeam_Spectator:	{
 						int picker = GetRandomInt(2, 3);
 						
 						if(swapInstant.BoolValue)	{
@@ -198,22 +205,22 @@ public Action SwapTeamPlayer(int client, int args)	{
 							case	3:	teamname = "{blue}Counter-Terrorists";
 						}
 					}
-					case	CSTeam_Terrorists:	{
+					case	CSTeam_Terrorist:	{
 						if(swapInstant.BoolValue)
 							SetClientTeamNum(target, 3);
 						else
-							CS_ChangeClientTeam(target, CSTeam_CTerrorists);
+							CS_ChangeClientTeam(target, CSTeam_CTerrorist);
 							
 						if(GetEngineVersion() == Engine_CSS)
 							teamname = "{blue}Counter-Terrorists";
 						else
 							teamname = "{bluegrey}Counter-Terrorists";
 					}
-					case	CSTeam_CTerrorists:	{
+					case	CSTeam_CTerrorist:	{
 						if(swapInstant.BoolValue)
 							SetClientTeamNum(target, 2);
 						else
-							CS_ChangeClientTeam(target, CSTeam_Terrorists);
+							CS_ChangeClientTeam(target, CSTeam_Terrorist);
 							
 						if(GetEngineVersion() == Engine_CSS)
 							teamname = "{red}Terrorists";
@@ -224,8 +231,8 @@ public Action SwapTeamPlayer(int client, int args)	{
 				}
 			}
 			case	Engine_Left4Dead,Engine_Left4Dead2:	{
-				switch(L4D_GetClientTeam(client))	{
-					case	L4DTeam_Unassigned,L4DTeam_Spectators:	{
+				switch(L4D_GetClientTeam(target))	{
+					case	L4DTeam_Unassigned,L4DTeam_Spectator:	{
 						int picker = GetRandomInt(2, 3);
 						
 						if(swapInstant.BoolValue)
@@ -238,19 +245,49 @@ public Action SwapTeamPlayer(int client, int args)	{
 							case	3:	teamname	=	"{lightred}Zombies";
 						}
 					}
-					case	L4DTeam_Survivors:	{
+					case	L4DTeam_Survivor:	{
 						if(swapInstant.BoolValue)
-							SetClientTeamNum(client, 2);
+							SetClientTeamNum(target, 3);
 						else
-							L4D_ChangeClientTeam(client, L4DTeam_Zombies);
+							L4D_ChangeClientTeam(target, L4DTeam_Zombie);
 						teamname	=	"{lightred}Zombies";
 					}
-					case	L4DTeam_Zombies:	{
+					case	L4DTeam_Zombie:	{
 						if(swapInstant.BoolValue)
-							SetClientTeamNum(client, 3);
+							SetClientTeamNum(target, 2);
 						else
-							L4D_ChangeClientTeam(client, L4DTeam_Survivors);
+							L4D_ChangeClientTeam(target, L4DTeam_Survivor);
 						teamname	=	"{orange}Survivors";
+					}
+					default:	return	Plugin_Handled;
+				}
+			}
+			case	Engine_DODS:	{
+				switch(DOD_GetClientTeam(target))	{
+					case	DODTeam_Unassigned,DODTeam_Spectator:	{
+						int picker = GetRandomInt(2, 3);
+						
+						if(swapInstant.BoolValue)
+							SetClientTeamNum(target, picker);
+						else
+							ChangeClientTeam(target, picker);
+						
+						switch(picker)	{
+							case	2:	teamname	=	"{red}Wehrmacht";
+							case	3:	teamname	=	"{blue}U.S Army.";
+						}
+					}
+					case	DODTeam_Red:	{
+						if(swapInstant.BoolValue)
+							SetClientTeamNum(target, 3);
+						else
+							DOD_ChangeClientTeam(target, DODTeam_Blue);
+					}
+					case	DODTeam_Blue:	{
+						if(swapInstant.BoolValue)
+							SetClientTeamNum(target, 2);
+						else
+							DOD_ChangeClientTeam(target, DODTeam_Red);
 					}
 					default:	return	Plugin_Handled;
 				}
@@ -265,7 +302,7 @@ public Action SwapTeamPlayer(int client, int args)	{
 	return Plugin_Handled;	
 }
 
-public Action SpecTeamPlayer(int client, int args)	{
+Action SpecTeamPlayer(int client, int args)	{
 	if(args < 1)	{
 		CPrintToChat(client, "%s %t", swapPrefix, "swapteam_spec_usage");
 		return Plugin_Handled;
@@ -308,7 +345,7 @@ public Action SpecTeamPlayer(int client, int args)	{
 	return Plugin_Handled;	
 }
 
-public Action ExchangeTeamPlayer(int client, int args)	{
+Action ExchangeTeamPlayer(int client, int args)	{
 	if(args < 2)	{
 		CPrintToChat(client, "%s %t", swapPrefix, "exchangeteam_usage");
 		return	Plugin_Handled;
@@ -432,14 +469,14 @@ public Action ExchangeTeamPlayer(int client, int args)	{
 	else
 		CPrintToChatAll("%s %t",	swapPrefix,	"exchangeteam_target_client", target_name, teamname2, target_name2, teamname1);
 	
-	return Plugin_Handled;
+	return	Plugin_Handled;
 }
 
-public Action	SpecTeam(int client, int args)	{
+Action	SpecTeam(int client, int args)	{
 	ChangeClientTeam(client, 1);
 }
 
-public Action ForceClientTeam(int client, int args)	{
+Action ForceClientTeam(int client, int args)	{
 	if(args < 2)	{
 		CPrintToChat(client,	"%s %t", swapPrefix, "forceteam_usage");
 		return Plugin_Handled;
@@ -497,9 +534,102 @@ public Action ForceClientTeam(int client, int args)	{
 	}
 	
 	if(swapNotifyForceTeam.BoolValue)
-		CPrintToChatAll(		"%s %t",	swapPrefix, "forceteam_target",	client,	value,	target_name);
+		CPrintToChatAll("%s %t",			swapPrefix, "forceteam_target",	client,	value,	target_name);
 	else
 		CPrintToChat(client,	"%s %t",	swapPrefix,	"forceteam_target_client",	value,	target_name);
+	
+	return	Plugin_Handled;
+}
+
+Action ScramblePlayer(int client, int args)	{
+	if(args != 1)	{
+		CPrintToChat(client,	"%s %t", swapPrefix, "scrambleplayer_usage");
+		return	Plugin_Handled;
+	}
+	
+	char	arg1			[MAX_TARGET_LENGTH],
+			target_name		[MAX_TARGET_LENGTH];
+	int		target_list		[MAXPLAYERS],
+			target_count;
+	bool	tn_is_ml;
+	
+	GetCmdArg(1, arg1, sizeof(arg1));
+	if((target_count = ProcessTargetString(
+		arg1,
+		client,
+		target_list,
+		MAXPLAYERS,
+		COMMAND_FILTER_CONNECTED,
+		target_name,
+		sizeof(target_name),
+		tn_is_ml)) <= 0)
+	{
+		ReplyToTargetError(client, target_count);
+		return	Plugin_Handled;
+	}
+
+	for(int i = 0; i < target_count; i++)	{
+		int	target	=	target_list[i];
+		
+		int	teams;
+		switch(GetEngineVersion())	{
+			case	Engine_TF2:	{
+				char	tf_game[32];
+				GetGameFolderName(tf_game,	sizeof(tf_game));
+				if(StrEqual(tf_game,	"tf2classic"))
+					teams	=	5;
+				else
+					teams	=	3;
+			}
+			default:	teams	=	3;
+		}
+		int	picker	=	GetRandomInt(2,	teams);
+		if(swapInstantScramble.BoolValue)
+			SetClientTeamNum(target,	picker);
+		else
+			ChangeClientTeam(target,	picker);
+	}
+	
+	if(swapNotifyScramble.BoolValue)
+		CPrintToChatAll("%s %t",			swapPrefix, "scrambleplayer_target",	client,	target_name);
+	else
+		CPrintToChat(client,	"%s %t",	swapPrefix,	"scrambleplayer_target_client",	target_name);
+	
+	return Plugin_Handled;
+}
+
+Action ScrambleTeams(int client, int args)	{
+	if(args != 0)	{
+		CPrintToChat(client,	"%s %t", swapPrefix, "scrambleplayer_usage");
+		return	Plugin_Handled;
+	}	
+
+	for(int i = 0; i < MaxClients; i++)	{
+		int	target	=	i;
+		
+		int	teams;
+		switch(GetEngineVersion())	{
+			case	Engine_TF2:	{
+				char	tf_game[32];
+				GetGameFolderName(tf_game,	sizeof(tf_game));
+				if(StrEqual(tf_game,	"tf2classic"))
+					teams	=	5;
+				else
+					teams	=	3;
+			}
+			default:	teams	=	3;
+		}
+		int	picker	=	GetRandomInt(2,	teams);
+		if(swapInstantScramble.BoolValue)
+			SetClientTeamNum(target,	picker);
+		else
+			ChangeClientTeam(target,	picker);
+	}
+	
+	if(swapNotifyScramble.BoolValue)
+		CPrintToChatAll("%s %t",			swapPrefix, "scrambleteams_target");
+	else
+		CPrintToChat(client,	"%s %t",	swapPrefix,	"scrambleteams_target_client");
 	
 	return Plugin_Handled;
 }

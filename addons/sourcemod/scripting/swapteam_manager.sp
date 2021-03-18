@@ -1,5 +1,5 @@
 #include	<multicolors>
-#include	<tk>
+#include	<tklib>
 
 #pragma		semicolon	1
 #pragma		newdecls	required

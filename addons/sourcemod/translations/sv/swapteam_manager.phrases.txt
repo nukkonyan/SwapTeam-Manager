@@ -1,74 +1,77 @@
 "Phrases"
 {
-	"swapteam_prefix"
+	"Invalid target"
 	{
-		"sv"		"{lightgreen}[Swap]"
+		"sv"		"Den specifierade måltavlan är ogiltig."
+	}
+	"Invalid target2"
+	{
+		"sv"		"Den andre specifierade måltavlan är ogiltig."
 	}
 	
-	"swapteam_usage"
+	"Swap team usage"
 	{
-		"sv"		"Användning: {lightgreen}sm_swap {orange}<#användarid|mål>"
+		"sv"		"Användning: sm_swap <#userid|måltavla>"
 	}
-	"swapteam_usage_tf2c"
+	"Swap team tf2c usage"
 	{
-		"sv"		"Användning: {lightgreen}sm_swap {orange}<#användarid|mål> {yellow}<lagnamn>"
+		"sv"		"Användning: sm_swap <#userid|måltavla> <lag namn|slumpmässig>"
 	}
-	"swapteam_spec_usage"
+	"Swap team spec usage"
 	{
-		"sv"		"Användning: {lightgreen}sm_swapspec {orange}<#användarid|mål>"
+		"sv"		"Användning: sm_swapspec <#userid|måltavla>"
 	}
-	"swapteam_target"
+	"Swap team event"
 	{
-		"#format"	"{1:N},{2:s},{3:s}"
-		"sv"		"{1} {default}Bytte lag utav {2} {default}till {3}"
-	}
-	"swapteam_target_client"
-	{
-		"#format"	"{1:s},{2:s}"
-		"sv"		"Bytte lag utav {1} {default}till {2}"
+		"#format"	"{1:N},{2:N},{3:s}"
+		"sv"		"{1} Böt lag utav {2} till {3}."
 	}
 	
-	"exchangeteam_usage"
+	"Exchange team usage"
 	{
-		"sv"		"Användning: {lightgreen}sm_exchange {orange}<#användarid|mål {yellow}<#användarid|mål>"
+		"sv"		"Användning: sm_exchange <#userid|måltavla <#userid|måltavla>."
 	}
-	"exchangeteam_error"
+	"Exchange team error"
 	{
-		"sv"			"Målen är med på samma lag, avbryter utbyte"
+		"sv"		"Det båda måltavlorna är i samma lag, avbryter ombytning."
 	}
-	"exchangeteam_target"
+	"Exchange team event"
 	{
-		"#format"	"{1:N},{2:s},{3:s},{4:s},{5:s}"
-		"sv"		"{1} {default}Bytte ut {lightgreen}{2} {default}till lag {3} {default}med {lightgreen}{4} {default}till lag {5}"
-	}
-	"exchangeteam_target_client"
-	{
-		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"sv"		"Exchanged {lightgreen}{1} {default}to team {2} {default}with {lightgreen}{3} {default}to team {4}"
+		"#format"	"{1:N},{2:N},{3:s},{4:N},{5:s}"
+		"sv"		"{1} Böt om laget för {2} till laget {3} med {4} till laget {5}."
 	}
 	
-	"forceteam_usage"
+	"Forceteam usage"
 	{
-		"sv"		"Användning: {lightgreen}sm_forceteam {orange}<#användarid|mål> {yellow}<lag indexnummer>"
+		"sv"		"Användning: sm_forceteam <#userid|måltavla> <lag index nummer>."
 	}
-	"forceteam_error_lower"
+	"Forceteam error too low"
 	{
-		"sv"		"Lag indexnummer kan inte vara lägre än {lightgreen}0"
+		"sv"		"Lag integer nummer kan ej vara under 0."
 	}
-	"forceteam_error_over"
+	"Forceteam error too high"
 	{
 		"#format"	"{1:d}"
-		"sv"		"Lag indexnummer kan inte vara över {lightgreen}{1}"
+		"sv"		"Lag integer nummer kan ej vara över {1}."
 	}
-	"forceteam_target"
+	"Forceteam event"
 	{	
-		"#format"	"{1:N},{2:d},{3:s}"
-		"sv"		"{1} Tvingade lag indexnummer {2} på {lightgreen}{3}"
-	}
-	"forceteam_target_client"
-	{	
-		"#format"	"{1:d},{2:s}"
-		"sv"		"Tvingade lag indexnummer {1} on {lightgreen}{2}"
+		"#format"	"{1:s},{2:d},{3:N}"
+		"sv"		"{1} Tvingade lag index {2} on {3}."
 	}
 
+	"Scramble player usage"
+	{
+		"sv"		"Användning: sm_scramble <#userid|target>."
+	}
+	"Scramble player"
+	{
+		"#format"	"{1:N},{2:N}"
+		"sv"		"{1} har kastat om {2}."
+	}
+	"Scramble teams event"
+	{
+		"#format"	"{1:N}"
+		"sv"		"{1} Har kastat om lagen."
+	}
 }

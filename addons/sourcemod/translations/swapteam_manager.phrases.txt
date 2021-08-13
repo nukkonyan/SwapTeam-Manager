@@ -1,74 +1,77 @@
 "Phrases"
 {
-	"swapteam_prefix"
+	"Invalid target"
 	{
-		"en"		"{lightgreen}[Swap]"
+		"en"		"The target specified is invalid."
+	}
+	"Invalid target2"
+	{
+		"en"		"The second target specified is invalid."
 	}
 	
-	"swapteam_usage"
+	"Swap team usage"
 	{
-		"en"		"Usage: {lightgreen}sm_swap {orange}<#userid|target>"
+		"en"		"Usage: sm_swap <#userid|target>"
 	}
-	"swapteam_usage_tf2c"
+	"Swap team tf2c usage"
 	{
-		"en"		"Usage: {lightgreen}sm_swap {orange}<#userid|target> {yellow}<teamname>"
+		"en"		"Usage: sm_swap <#userid|target> <teamname|random>"
 	}
-	"swapteam_spec_usage"
+	"Swap team spec usage"
 	{
-		"en"		"Usage: {lightgreen}sm_swapspec {orange}<#userid|target>"
+		"en"		"Usage: sm_swapspec <#userid|target>"
 	}
-	"swapteam_target"
+	"Swap team event"
 	{
 		"#format"	"{1:N},{2:s},{3:s}"
-		"en"		"{1} {default}Swapped Team of {2} {default}to {3}"
-	}
-	"swapteam_target_client"
-	{
-		"#format"	"{1:s},{2:s}"
-		"en"		"Swapped Team of {1} {default}to {2}"
+		"en"		"{1} Swapped Team of {2} to {3}."
 	}
 	
-	"exchangeteam_usage"
+	"Exchange team usage"
 	{
-		"en"		"Usage: {lightgreen}sm_exchange {orange}<#userid|target {yellow}<#userid|target>"
+		"en"		"Usage: sm_exchange <#userid|target <#userid|target>."
 	}
-	"exchangeteam_error"
+	"Exchange team error"
 	{
-		"en"			"The targets are both are in the same team, aborting exchange"
+		"en"			"The targets are both are in the same team, aborting exchange."
 	}
-	"exchangeteam_target"
+	"Exchange team event"
 	{
-		"#format"	"{1:N},{2:s},{3:s},{4:s},{5:s}"
-		"en"		"{1} {default}Exchanged {lightgreen}{2} {default}to team {3} {default}with {lightgreen}{4} {default}to team {5}"
-	}
-	"exchangeteam_target_client"
-	{
-		"#format"	"{1:s},{2:s},{3:s},{4:s}"
-		"en"		"Exchanged {lightgreen}{1} {default}to team {2} {default}with {lightgreen}{3} {default}to team {4}"
+		"#format"	"{1:N},{2:N},{3:s},{4:N},{5:s}"
+		"en"		"{1} Exchanged {2} to team {3} with {4} to team {5}."
 	}
 	
-	"forceteam_usage"
+	"Forceteam usage"
 	{
-		"en"		"Usage: {lightgreen}sm_forceteam {orange}<#userid|target> {yellow}<team index number>"
+		"en"		"Usage: sm_forceteam <#userid|target> <team index number>."
 	}
-	"forceteam_error_lower"
+	"Forceteam error too low"
 	{
-		"en"		"The team integer value cannot be lower than {lightgreen}0"
+		"en"		"The team integer value cannot be lower than 0."
 	}
-	"forceteam_error_over"
+	"Forceteam error too high"
 	{
 		"#format"	"{1:d}"
-		"en"		"The team integer value cannot be over {lightgreen}{1}"
+		"en"		"The team integer value cannot be over {1}."
 	}
-	"forceteam_target"
+	"Forceteam event"
 	{	
-		"#format"	"{1:N},{2:d},{3:s}"
-		"en"		"{1} Forced team index integer {2} on {lightgreen}{3}"
-	}
-	"forceteam_target_client"
-	{	
-		"#format"	"{1:d},{2:s}"
-		"en"		"Forced team index integer {1} on {lightgreen}{2}"
+		"#format"	"{1:s},{2:d},{3:s}"
+		"en"		"{1} Forced team index integer {2} on {3}."
 	}
 
+	"Scramble player usage"
+	{
+		"en"		"Usage: sm_scramble <#userid|target>."
+	}
+	"Scramble player"
+	{
+		"#format"	"{1:N},{2:N}"
+		"en"		"{1} has scrambled the team of {2}."
+	}
+	"Scramble teams event"
+	{
+		"#format"	"{1:N}"
+		"en"		"{1} Has scrambled the teams."
+	}
 }

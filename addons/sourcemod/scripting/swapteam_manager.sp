@@ -8,7 +8,7 @@ public	Plugin	myinfo	=	{
 	name		=	"[ANY] SwapTeam Manager",
 	author		=	"Tk /id/Teamkiller324",
 	description	=	"Manage and swap players teams",
-	version		=	"1.3.0",
+	version		=	"1.3.1",
 	url			=	"https://steamcommunity.com"
 }
 
@@ -118,10 +118,10 @@ Action SwapTeamPlayer(int client, int args)	{
 			if(StrContainsEx(arg2, "Ran", false))
 				swapInstant.BoolValue ? SetClientTeamNum(target, GetRandomInt(2, 5)):ChangeClientTeam(target, GetRandomInt(2, 5));
 			
-			if((StrContainsEx(arg2, "Yel", false) || StrContainsEx(arg2, "Ylw", false)) && TF2_GetClientTeam(target) != TFTeam_Yellow)
+			if(StrContainsEx(arg2, "Yel Ylw", false) && TF2_GetClientTeam(target) != TFTeam_Yellow)
 				swapInstant.BoolValue ? SetClientTeamNum(target, 5):TF2_ChangeClientTeam(target, TFTeam_Yellow);
 			
-			if((StrContainsEx(arg2, "Gre", false) || StrContainsEx(arg2, "Grn", false)) && TF2_GetClientTeam(target) != TFTeam_Green)
+			if(StrContainsEx(arg2, "Gre Grn", false) && TF2_GetClientTeam(target) != TFTeam_Green)
 				swapInstant.BoolValue ? SetClientTeamNum(target, 4):TF2_ChangeClientTeam(target, TFTeam_Green);
 			
 			if(StrContainsEx(arg2, "Blu", false) && TF2_GetClientTeam(target) != TFTeam_Blue)
@@ -130,7 +130,7 @@ Action SwapTeamPlayer(int client, int args)	{
 			if(StrContainsEx(arg2, "Red", false) && TF2_GetClientTeam(target) != TFTeam_Red)
 				swapInstant.BoolValue ? SetClientTeamNum(target, 2):TF2_ChangeClientTeam(target, TFTeam_Red);
 			
-			strcopy(teamname, sizeof(teamname), TF2_GetTeamStringName[TF2_GetClientTeam(client)]);
+			strcopy(teamname, sizeof(teamname), TF2_GetTeamStringName[TF2_GetClientTeam(target)]);
 		}
 		case	Game_CSS, Game_CSGO, Game_CSPromod:	{
 			switch(CS_GetClientTeam(target))	{
@@ -143,7 +143,7 @@ Action SwapTeamPlayer(int client, int args)	{
 			if(swapUpdateModel.BoolValue)
 				CS_UpdateClientModel(target);
 			
-			strcopy(teamname, sizeof(teamname), IdentifyGame() == Game_CSGO ? CSGO_GetTeamStringName[CS_GetClientTeam(client)]:CSS_GetTeamStringName[CS_GetClientTeam(client)]);
+			strcopy(teamname, sizeof(teamname), IdentifyGame() == Game_CSGO ? CSGO_GetTeamStringName[CS_GetClientTeam(target)]:CSS_GetTeamStringName[CS_GetClientTeam(target)]);
 		}
 		case	Game_L4D1, Game_L4D2:	{
 			switch(L4D_GetClientTeam(target))	{
@@ -153,7 +153,7 @@ Action SwapTeamPlayer(int client, int args)	{
 				case	L4DTeam_Infected:	swapInstant.BoolValue ? SetClientTeamNum(target, 2):L4D_ChangeClientTeam(target, L4DTeam_Survivor);
 			}
 			
-			strcopy(teamname, sizeof(teamname), L4D_GetTeamStringName[L4D_GetClientTeam(client)]);
+			strcopy(teamname, sizeof(teamname), L4D_GetTeamStringName[L4D_GetClientTeam(target)]);
 		}
 		case	Game_DODS:	{
 			switch(DOD_GetClientTeam(target))	{
@@ -163,7 +163,7 @@ Action SwapTeamPlayer(int client, int args)	{
 				case	DODTeam_Blue:		swapInstant.BoolValue ? SetClientTeamNum(target, 2):DOD_ChangeClientTeam(target, DODTeam_Red);
 			}
 			
-			strcopy(teamname, sizeof(teamname), DOD_GetTeamStringName[DOD_GetClientTeam(client)]);
+			strcopy(teamname, sizeof(teamname), DOD_GetTeamStringName[DOD_GetClientTeam(target)]);
 		}
 	}
 	

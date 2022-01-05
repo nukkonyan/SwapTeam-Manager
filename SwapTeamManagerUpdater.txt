@@ -9,7 +9,7 @@
 		
 		"Notes"	"More info @ https://github.com/Teamkiller324/SwapTeam-Manager"
 		"Notes"	"Updated code."
-		"Notes"	"Added updater support."
+		"Notes"	"Added Updater support."
 		"Notes"	"Added Danish translation. (Thanks to ksgoescoding)."
 	}
 	

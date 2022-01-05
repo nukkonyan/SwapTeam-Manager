@@ -4,12 +4,12 @@
 	{
 		"Version"
 		{
-			"Latest"	"0.7.1"
+			"Latest"	"1.3.2"
 		}
 		
-		"Notes"	"More info @ https://github.com/Teamkiller324/Suppress-Manager"
+		"Notes"	"More info @ https://github.com/Teamkiller324/SwapTeam-Manager"
+		"Notes"	"Updated code."
 		"Notes"	"Added updater support."
-		"Notes"	"Cleaned up code."
 		"Notes"	"Added Danish translation. (Thanks to ksgoescoding)."
 	}
 	
@@ -17,21 +17,21 @@
 	{
 		"Patch"
 		{
-			"Plugin"	"Path_SM/plugins/sm_suppress.smx"
-			"Plugin"	"Path_SM/plugins/disabled/sm_suppress_nativetest.smx"
+			"Plugin"	"Path_SM/plugins/swapteam_manager.smx"
 			
-			"Source"	"Path_SM/scripting/sm_suppress.sp"
-			"Source"	"Path_SM/scripting/sm_suppress_nativetest.sp"
+			"Plugin"	"Path_SM/translations/swapteam_manager.phrases.txt"
+			"Plugin"	"Path_SM/translations/sv/swapteam_manager.phrases.txt"
+			"Plugin"	"Path_SM/translations/dk/swapteam_manager.phrases.txt"
 			
-			"Include"	"Path_SM/scripting/include/suppress_manager.inc"
+			"Source"	"Path_SM/scripting/swapteam_manager.sp"
 		}
 		
-		"Plugin"	"Path_SM/plugins/sm_suppress.smx"
-		"Plugin"	"Path_SM/plugins/disabled/sm_suppress_nativetest.smx"
+		"Plugin"	"Path_SM/plugins/swapteam_manager.smx"
 		
-		"Source"	"Path_SM/scripting/sm_suppress.sp"
-		"Source"	"Path_SM/scripting/sm_suppress_nativetest.sp"
+		"Plugin"	"Path_SM/translations/swapteam_manager.phrases.txt"
+		"Plugin"	"Path_SM/translations/sv/swapteam_manager.phrases.txt"
+		"Plugin"	"Path_SM/translations/dk/swapteam_manager.phrases.txt"
 		
-		"Include"	"Path_SM/scripting/include/suppress_manager.inc"
+		"Source"	"Path_SM/scripting/swapteam_manager.sp"
 	}
 }

@@ -28,16 +28,16 @@ More to be supported later by suggestion
 
 ## Commands
 ```
-sm_swap - Swap a player to opposite team
-sm_swapteam - Swap a player to opposite team
-sm_switch - Swap a player to opposite team
-sm_switchteam - Swap a player to opposite team
-sm_exchange - Exchange a target to a clients team
+sm_swap <target|#userid> - Swap a player to opposite team
+sm_swapteam <target|#userid> - Swap a player to opposite team
+sm_switch <target|#userid> - Swap a player to opposite team
+sm_switchteam <target|#userid> - Swap a player to opposite team
+sm_exchange <target|#userid> <target|#userid> - Exchange a target to a clients team
 sm_spec - Switch to spectators team
-sm_switchspec - Switch a player to the spectators team
-sm_swapteam - Switch a player to the spectators team
-sm_forceteam - Force a team index on a client
-sm_scramble - Scramble a player to a random team.
+sm_switchspec <target|#userid> - Switch a player to the spectators team
+sm_swapteam <target|#userid> - Switch a player to the spectators team
+sm_forceteam <target|#userid> <team index> - Force a team index on a client
+sm_scramble <target|#userid> - Scramble a player to a random team.
 sm_scrambleteams - Scramble players to a random team.
 ```
 

@@ -5,8 +5,8 @@ AlliedModders Post: https://forums.alliedmods.net/showthread.php?p=2733684
 
 ## Requirements
 
-[Tk Libraries](https://github.com/Teamkiller324/Tklib) (To compile the plugin)
-[Updater](https://github.com/Teamkiller324/Updater) (To compile with updater support)
+### [Tk Libraries](https://github.com/Teamkiller324/Tklib) (To compile the plugin)
+### [Updater](https://github.com/Teamkiller324/Updater) (To compile with updater support)
 
 ## Description
 

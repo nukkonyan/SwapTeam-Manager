@@ -1,0 +1,37 @@
+"Updater"
+{
+	"Information"
+	{
+		"Version"
+		{
+			"Latest"	"0.7.1"
+		}
+		
+		"Notes"	"More info @ https://github.com/Teamkiller324/Suppress-Manager"
+		"Notes"	"Added updater support."
+		"Notes"	"Cleaned up code."
+		"Notes"	"Added Danish translation. (Thanks to ksgoescoding)."
+	}
+	
+	"Files"
+	{
+		"Patch"
+		{
+			"Plugin"	"Path_SM/plugins/sm_suppress.smx"
+			"Plugin"	"Path_SM/plugins/disabled/sm_suppress_nativetest.smx"
+			
+			"Source"	"Path_SM/scripting/sm_suppress.sp"
+			"Source"	"Path_SM/scripting/sm_suppress_nativetest.sp"
+			
+			"Include"	"Path_SM/scripting/include/suppress_manager.inc"
+		}
+		
+		"Plugin"	"Path_SM/plugins/sm_suppress.smx"
+		"Plugin"	"Path_SM/plugins/disabled/sm_suppress_nativetest.smx"
+		
+		"Source"	"Path_SM/scripting/sm_suppress.sp"
+		"Source"	"Path_SM/scripting/sm_suppress_nativetest.sp"
+		
+		"Include"	"Path_SM/scripting/include/suppress_manager.inc"
+	}
+}

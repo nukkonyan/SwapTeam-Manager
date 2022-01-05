@@ -1,0 +1,77 @@
+"Phrases"
+{
+	"Invalid target"
+	{
+		"sv"		"Den specifierade måltavlan är ogiltig."
+	}
+	"Invalid target2"
+	{
+		"sv"		"Den andre specifierade måltavlan är ogiltig."
+	}
+	
+	"Swap team usage"
+	{
+		"sv"		"Användning: sm_swap <#userid|måltavla>"
+	}
+	"Swap team tf2c usage"
+	{
+		"sv"		"Användning: sm_swap <#userid|måltavla> <lag namn|slumpmässig>"
+	}
+	"Swap team spec usage"
+	{
+		"sv"		"Användning: sm_swapspec <#userid|måltavla>"
+	}
+	"Swap team event"
+	{
+		"#format"	"{1:N},{2:N},{3:s}"
+		"sv"		"{1} Böt lag utav {2} till {3}."
+	}
+	
+	"Exchange team usage"
+	{
+		"sv"		"Användning: sm_exchange <#userid|måltavla <#userid|måltavla>."
+	}
+	"Exchange team error"
+	{
+		"sv"		"Det båda måltavlorna är i samma lag, avbryter ombytning."
+	}
+	"Exchange team event"
+	{
+		"#format"	"{1:N},{2:N},{3:s},{4:N},{5:s}"
+		"sv"		"{1} Böt om laget för {2} till laget {3} med {4} till laget {5}."
+	}
+	
+	"Forceteam usage"
+	{
+		"sv"		"Användning: sm_forceteam <#userid|måltavla> <lag index nummer>."
+	}
+	"Forceteam error too low"
+	{
+		"sv"		"Lag integer nummer kan ej vara under 0."
+	}
+	"Forceteam error too high"
+	{
+		"#format"	"{1:d}"
+		"sv"		"Lag integer nummer kan ej vara över {1}."
+	}
+	"Forceteam event"
+	{	
+		"#format"	"{1:s},{2:d},{3:N}"
+		"sv"		"{1} Tvingade lag index {2} on {3}."
+	}
+
+	"Scramble player usage"
+	{
+		"sv"		"Användning: sm_scramble <#userid|target>."
+	}
+	"Scramble player"
+	{
+		"#format"	"{1:N},{2:N}"
+		"sv"		"{1} har kastat om {2}."
+	}
+	"Scramble teams event"
+	{
+		"#format"	"{1:N}"
+		"sv"		"{1} Har kastat om lagen."
+	}
+}

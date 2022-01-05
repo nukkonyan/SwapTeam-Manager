@@ -1,0 +1,77 @@
+"Phrases"
+{
+	"Invalid target"
+	{
+		"da"		"Den valgte spiller er ikke gyldig."
+	}
+	"Invalid target2"
+	{
+		"da"		"Den anden valgte spiller er ikke gyldig."
+	}
+	
+	"Swap team usage"
+	{
+		"da"		"Brug: sm_swap <#userid|target>"
+	}
+	"Swap team tf2c usage"
+	{
+		"da"		"Brug: sm_swap <#userid|target> <teamname|random>"
+	}
+	"Swap team spec usage"
+	{
+		"da"		"Brug: sm_swapspec <#userid|target>"
+	}
+	"Swap team event"
+	{
+		"#format"	"{1:N},{2:s},{3:s}"
+		"da"		"{1} Skiftede hold for {2} til {3}."
+	}
+	
+	"Exchange team usage"
+	{
+		"da"		"Brug: sm_exchange <#userid|target <#userid|target>."
+	}
+	"Exchange team error"
+	{
+		"da"		"De valgte spillere er begge på samme hold, afbryder udveksling."
+	}
+	"Exchange team event"
+	{
+		"#format"	"{1:N},{2:N},{3:s},{4:N},{5:s}"
+		"da"		"{1} Skiftede {2} til hold {3} med {4} til hold {5}."
+	}
+	
+	"Forceteam usage"
+	{
+		"da"		"Brug: sm_forceteam <#userid|target> <team index number>."
+	}
+	"Forceteam error too low"
+	{
+		"da"		"Holdets heltal værdi kan ikke være mindre end 0."
+	}
+	"Forceteam error too high"
+	{
+		"#format"	"{1:d}"
+		"da"		"Holdets heltal værdi kan ikke være over {1}."
+	}
+	"Forceteam event"
+	{	
+		"#format"	"{1:s},{2:d},{3:s}"
+		"da"		"{1} Tvang holdets heltal indeks til {2} på {3}."
+	}
+
+	"Scramble player usage"
+	{
+		"en"		"Usage: sm_scramble <#userid|target>."
+	}
+	"Scramble player"
+	{
+		"#format"	"{1:N},{2:N}"
+		"da"		"{1} har blandet holdende til {2}."
+	}
+	"Scramble teams event"
+	{
+		"#format"	"{1:N}"
+		"da"		"{1} Har blandet holdende."
+	}
+}
